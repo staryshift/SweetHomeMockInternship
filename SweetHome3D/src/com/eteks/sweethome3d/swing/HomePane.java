@@ -359,6 +359,8 @@ public class HomePane extends JRootPane implements HomeView {
         furnitureController, "toggleFurnitureSort", HomePieceOfFurniture.SortableProperty.X);
     createAction(ActionType.SORT_HOME_FURNITURE_BY_Y, preferences, 
         furnitureController, "toggleFurnitureSort", HomePieceOfFurniture.SortableProperty.Y);
+    createAction(ActionType.SORT_HOME_FURNITURE_BY_VOLUME, preferences,
+            furnitureController, "toggleFurnitureSort", HomePieceOfFurniture.SortableProperty.VOLUME);
     createAction(ActionType.SORT_HOME_FURNITURE_BY_ELEVATION, preferences, 
         furnitureController, "toggleFurnitureSort", HomePieceOfFurniture.SortableProperty.ELEVATION);
     createAction(ActionType.SORT_HOME_FURNITURE_BY_ANGLE, preferences, 
@@ -397,8 +399,10 @@ public class HomePane extends JRootPane implements HomeView {
         furnitureController, "toggleFurnitureVisibleProperty", HomePieceOfFurniture.SortableProperty.HEIGHT);
     createAction(ActionType.DISPLAY_HOME_FURNITURE_X, preferences, 
         furnitureController, "toggleFurnitureVisibleProperty", HomePieceOfFurniture.SortableProperty.X);
-    createAction(ActionType.DISPLAY_HOME_FURNITURE_Y, preferences, 
+    createAction(ActionType.DISPLAY_HOME_FURNITURE_Y, preferences,
         furnitureController, "toggleFurnitureVisibleProperty", HomePieceOfFurniture.SortableProperty.Y);
+    createAction(ActionType.DISPLAY_HOME_FURNITURE_VOLUME, preferences,
+            furnitureController, "toggleFurnitureVisibleProperty", HomePieceOfFurniture.SortableProperty.VOLUME);
     createAction(ActionType.DISPLAY_HOME_FURNITURE_ELEVATION, preferences, 
         furnitureController, "toggleFurnitureVisibleProperty", HomePieceOfFurniture.SortableProperty.ELEVATION);
     createAction(ActionType.DISPLAY_HOME_FURNITURE_ANGLE, preferences, 
@@ -1328,6 +1332,8 @@ public class HomePane extends JRootPane implements HomeView {
         sortActions, HomePieceOfFurniture.SortableProperty.X);
     addActionToMap(ActionType.SORT_HOME_FURNITURE_BY_Y, 
         sortActions, HomePieceOfFurniture.SortableProperty.Y);
+    addActionToMap(ActionType.SORT_HOME_FURNITURE_BY_VOLUME,
+          sortActions, HomePieceOfFurniture.SortableProperty.VOLUME);
     addActionToMap(ActionType.SORT_HOME_FURNITURE_BY_ELEVATION, 
         sortActions, HomePieceOfFurniture.SortableProperty.ELEVATION);
     addActionToMap(ActionType.SORT_HOME_FURNITURE_BY_ANGLE, 
@@ -1431,6 +1437,8 @@ public class HomePane extends JRootPane implements HomeView {
         displayPropertyActions, HomePieceOfFurniture.SortableProperty.X);
     addActionToMap(ActionType.DISPLAY_HOME_FURNITURE_Y, 
         displayPropertyActions, HomePieceOfFurniture.SortableProperty.Y);
+    addActionToMap(ActionType.DISPLAY_HOME_FURNITURE_VOLUME,
+            displayPropertyActions, HomePieceOfFurniture.SortableProperty.VOLUME);
     addActionToMap(ActionType.DISPLAY_HOME_FURNITURE_ELEVATION, 
         displayPropertyActions, HomePieceOfFurniture.SortableProperty.ELEVATION);
     addActionToMap(ActionType.DISPLAY_HOME_FURNITURE_ANGLE, 

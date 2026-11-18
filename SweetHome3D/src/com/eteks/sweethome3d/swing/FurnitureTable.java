@@ -927,6 +927,9 @@ public class FurnitureTable extends JTable implements View, Printable {
           case Y :
             writer.write(sizeFormat.format(copiedPiece.getY()));
             break;
+          case VOLUME:
+            writer.write(sizeFormat.format(copiedPiece.getVolume()));
+            break;
           case ELEVATION : 
             writer.write(sizeFormat.format(copiedPiece.getElevation()));
             break;
@@ -1134,7 +1137,9 @@ public class FurnitureTable extends JTable implements View, Printable {
           return preferences.getLocalizedString(FurnitureTable.class, "xColumn");
         case Y :
           return preferences.getLocalizedString(FurnitureTable.class, "yColumn");
-        case ELEVATION : 
+        case VOLUME:
+          return "Volume";
+        case ELEVATION :
           return preferences.getLocalizedString(FurnitureTable.class, "elevationColumn");
         case ANGLE :
           return preferences.getLocalizedString(FurnitureTable.class, "angleColumn");
@@ -1176,6 +1181,7 @@ public class FurnitureTable extends JTable implements View, Printable {
         case HEIGHT : 
         case X : 
         case Y :
+        case VOLUME:
         case ELEVATION : 
           return 50;
         case ANGLE :
@@ -1219,6 +1225,8 @@ public class FurnitureTable extends JTable implements View, Printable {
           return getSizeRenderer(HomePieceOfFurniture.SortableProperty.X, preferences);
         case Y :
           return getSizeRenderer(HomePieceOfFurniture.SortableProperty.Y, preferences);
+        case VOLUME:
+          return getSizeRenderer(HomePieceOfFurniture.SortableProperty.VOLUME, preferences);
         case ELEVATION : 
           return getSizeRenderer(HomePieceOfFurniture.SortableProperty.ELEVATION, preferences);
         case ANGLE :
@@ -1361,6 +1369,16 @@ public class FurnitureTable extends JTable implements View, Printable {
                     isSelected, hasFocus, row, column);
               }
             };
+        case VOLUME:
+          return new SizeRenderer() {
+            @Override
+            public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected,
+                                                           boolean hasFocus, int row, int column) {
+              return super.getTableCellRendererComponent(table,
+                      value != null ? ((HomePieceOfFurniture) value).getY() : null,
+                      isSelected, hasFocus, row, column);
+            }
+          };
         case ELEVATION :
           return new SizeRenderer() {
               @Override

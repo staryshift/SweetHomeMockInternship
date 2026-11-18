@@ -52,7 +52,7 @@ public class HomeFurnitureController implements Controller {
   /**
    * The properties that may be edited by the view associated to this controller. 
    */
-  public enum Property {ICON, NAME, NAME_VISIBLE, DESCRIPTION, PRICE, X, Y, ELEVATION, ANGLE_IN_DEGREES, BASE_PLAN_ITEM, 
+  public enum Property {ICON, NAME, NAME_VISIBLE, DESCRIPTION, PRICE, X, Y, VOLUME, ELEVATION, ANGLE_IN_DEGREES, BASE_PLAN_ITEM,
       WIDTH, DEPTH,  HEIGHT, PROPORTIONAL, COLOR, PAINT, SHININESS, VISIBLE, MODEL_MIRRORED, LIGHT_POWER, 
       RESIZABLE, DEFORMABLE, TEXTURABLE}
   

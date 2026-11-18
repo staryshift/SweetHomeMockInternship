@@ -258,6 +258,7 @@ public class HomeController implements Controller {
     homeView.setEnabled(HomeView.ActionType.SORT_HOME_FURNITURE_BY_DEPTH, true);
     homeView.setEnabled(HomeView.ActionType.SORT_HOME_FURNITURE_BY_X, true);
     homeView.setEnabled(HomeView.ActionType.SORT_HOME_FURNITURE_BY_Y, true);
+    homeView.setEnabled(HomeView.ActionType.SORT_HOME_FURNITURE_BY_VOLUME, true);
     homeView.setEnabled(HomeView.ActionType.SORT_HOME_FURNITURE_BY_ELEVATION, true);
     homeView.setEnabled(HomeView.ActionType.SORT_HOME_FURNITURE_BY_ANGLE, true);
     homeView.setEnabled(HomeView.ActionType.SORT_HOME_FURNITURE_BY_LEVEL, true);
@@ -278,7 +279,8 @@ public class HomeController implements Controller {
     homeView.setEnabled(HomeView.ActionType.DISPLAY_HOME_FURNITURE_DEPTH, true); 
     homeView.setEnabled(HomeView.ActionType.DISPLAY_HOME_FURNITURE_HEIGHT, true); 
     homeView.setEnabled(HomeView.ActionType.DISPLAY_HOME_FURNITURE_X, true); 
-    homeView.setEnabled(HomeView.ActionType.DISPLAY_HOME_FURNITURE_Y, true); 
+    homeView.setEnabled(HomeView.ActionType.DISPLAY_HOME_FURNITURE_Y, true);
+    homeView.setEnabled(HomeView.ActionType.DISPLAY_HOME_FURNITURE_VOLUME, true);
     homeView.setEnabled(HomeView.ActionType.DISPLAY_HOME_FURNITURE_ELEVATION, true); 
     homeView.setEnabled(HomeView.ActionType.DISPLAY_HOME_FURNITURE_ANGLE, true); 
     homeView.setEnabled(HomeView.ActionType.DISPLAY_HOME_FURNITURE_LEVEL, true); 
