@@ -131,6 +131,7 @@ public class FurnitureTable extends JTable implements View, Printable {
   private int                    furnitureInformationRow;
   private Popup                  furnitureInformationPopup;
   private AWTEventListener       informationPopupRemovalListener;
+  private boolean printAllLevels;
 
   /**
    * Creates a table that displays furniture of <code>home</code>.
@@ -724,6 +725,13 @@ public class FurnitureTable extends JTable implements View, Printable {
   }
 
   /**
+   * Sets whether the furniture table should print a Level column for all viewable levels.
+   */
+  public void setPrintAllLevels(boolean printAllLevels) {
+    this.printAllLevels = printAllLevels;
+  }
+
+  /**
    * Prints this component to make it fill <code>pageFormat</code> imageable size.
    */
   public int print(Graphics g, PageFormat pageFormat, int pageIndex) throws PrinterException {
@@ -778,8 +786,41 @@ public class FurnitureTable extends JTable implements View, Printable {
       // Change printable column header renderer
       printableColumn.setHeaderRenderer(printableHeaderRenderer);
       printableColumnModel.addColumn(printableColumn);
-    }    
+    }
+
+    if (this.printAllLevels
+            && !columnModelContainsProperty(
+            columnModel
+    )) {
+
+      FurnitureTableColumnModel furnitureColumnModel =
+              (FurnitureTableColumnModel)columnModel;
+
+      TableColumn tableColumn =
+              furnitureColumnModel.availableColumns.get(
+                      HomePieceOfFurniture.SortableProperty.LEVEL);
+
+      TableColumn printableColumn = new TableColumn(0);
+      printableColumn.setIdentifier(tableColumn.getIdentifier());
+      printableColumn.setHeaderValue(tableColumn.getHeaderValue());
+      printableColumn.setCellRenderer(tableColumn.getCellRenderer());
+      printableColumn.setHeaderRenderer(printableHeaderRenderer);
+
+      printableColumnModel.addColumn(printableColumn);
+    }
     return print(g, pageFormat, pageIndex, printableColumnModel, Color.BLACK);
+  }
+
+  private boolean columnModelContainsProperty(
+          TableColumnModel columnModel) {
+
+    for (int i = 0; i < columnModel.getColumnCount(); i++) {
+      if (HomePieceOfFurniture.SortableProperty.LEVEL.equals(columnModel.getColumn(i).getIdentifier())) {
+        return true;
+      }
+    }
+
+    return false;
   }
 
   /**
